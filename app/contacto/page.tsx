@@ -78,11 +78,11 @@ export default function ContactoPage() {
   return (
     <main className="overflow-hidden bg-[#fffaf5] pt-28 text-[#221f1d]">
       <section className="relative overflow-hidden border-b border-[#e7d3ca] bg-[#fffaf5]">
-        <div className="absolute inset-0 bg-[url('/images/textures/fondo.jpg')] bg-cover opacity-[0.05]" />
+        <div className="absolute inset-0 bg-[url('/images/textures/fondo.webp')] bg-cover opacity-[0.05]" />
         <div className="relative mx-auto grid min-h-[78svh] max-w-[1680px] items-stretch lg:grid-cols-[0.78fr_1.12fr]">
           <div className="relative z-10 flex flex-col justify-center px-5 py-20 sm:px-8 lg:px-20">
             <p className="editorial-kicker text-sm text-[#b87982]">Contacto</p>
-            <h1 className="mt-7 font-serif text-[70px] leading-none text-[#171514] sm:text-[96px] lg:text-[118px]">
+            <h1 className="mt-7 font-serif text-[52px] font-[430] leading-none tracking-[-0.04em] text-[#171514] sm:text-[74px] lg:text-[86px]">
               Hablemos
             </h1>
             <div className="mt-8 flex max-w-sm items-center gap-4 text-[#b89050]">
@@ -90,7 +90,7 @@ export default function ContactoPage() {
               <Crown size={20} />
               <span className="h-px flex-1 bg-[#b89050]/70" />
             </div>
-            <div className="mt-9 grid max-w-md gap-7 text-lg leading-9 text-[#4f403d]">
+            <div className="mt-9 grid max-w-md gap-6 text-base leading-8 text-[#4f403d] sm:text-lg">
               <p>
                 &iquest;Ten&eacute;s una idea, un proyecto o una obra en mente? Me encantar&iacute;a conocer tu
                 propuesta y explorar juntos las mejores posibilidades.
@@ -99,7 +99,7 @@ export default function ContactoPage() {
                 Consult&aacute; por obra original, obra personalizada, experiencias art&iacute;sticas o colaboraciones.
               </p>
             </div>
-            <p className="mt-10 font-serif text-4xl italic text-[#c97882]">Estoy para escucharte.</p>
+            <p className="mt-10 font-serif text-[30px] font-[430] tracking-[-0.025em] text-[#c97882]">Estoy para escucharte.</p>
           </div>
 
           <div className="relative min-h-[620px] overflow-hidden">
@@ -109,7 +109,7 @@ export default function ContactoPage() {
               fill
               priority
               sizes="(min-width: 1024px) 62vw, 100vw"
-              src="/images/contacto/van-telefono.png"
+              src="/images/contacto/imagen-contacto-vandc.webp"
             />
             <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[#fffaf5] via-[#fffaf5]/82 to-transparent" />
           </div>
@@ -126,7 +126,7 @@ export default function ContactoPage() {
               target={href.startsWith("http") ? "_blank" : undefined}
             >
               <Icon className="text-[#c97882]" size={30} />
-              <h2 className="mt-8 font-serif text-3xl text-[#221f1d]">{title}</h2>
+              <h2 className="mt-8 font-serif text-[27px] font-[520] leading-tight tracking-[-0.025em] text-[#221f1d]">{title}</h2>
               <p className="mt-4 min-h-[72px] text-sm leading-7 text-[#5d504b]">{copy}</p>
               <span className="mt-7 inline-flex items-center gap-4 text-[#c97882]">
                 <span className="sr-only">{label}</span>
@@ -143,14 +143,14 @@ export default function ContactoPage() {
           className="absolute inset-0 h-full w-full object-cover"
           fill
           sizes="100vw"
-          src="/images/contacto/background-form-contacto.png"
+          src="/images/contacto/background-form-contacto.webp"
         />
         <div className="absolute inset-0 bg-[#fffaf5]/52" />
         <div className="relative mx-auto max-w-[1500px]">
           <p className="editorial-kicker text-sm text-[#b87982]">Enviame tu consulta</p>
           <div className="mt-4 flex items-end justify-between gap-8">
             <div>
-              <h2 className="font-serif text-5xl leading-tight text-[#221f1d] sm:text-6xl">
+              <h2 className="font-serif text-[36px] font-[430] leading-tight tracking-[-0.03em] text-[#221f1d] sm:text-[48px]">
                 Complet&aacute; el formulario
               </h2>
               <span className="mt-5 block h-px w-12 bg-[#b89050]" />

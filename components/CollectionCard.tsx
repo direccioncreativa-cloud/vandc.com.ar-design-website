@@ -20,8 +20,8 @@ export function CollectionCard({ title, subtitle, image, href }: CollectionCardP
           src={image}
         />
       </div>
-      <h3 className="mt-7 font-serif text-5xl text-[#744247]">{title}</h3>
-      <p className="mt-3 text-xl text-[#8a5d5f]">{subtitle}</p>
+      <h3 className="mt-7 font-serif text-[38px] font-[520] leading-none tracking-[-0.03em] text-[#744247]">{title}</h3>
+      <p className="mt-3 text-lg text-[#8a5d5f]">{subtitle}</p>
     </Link>
   );
 }

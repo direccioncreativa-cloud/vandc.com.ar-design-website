@@ -55,7 +55,7 @@ export function CtaParallax() {
           className="object-contain object-right"
           fill
           sizes="(min-width: 1024px) 58vw, 100vw"
-          src="/images/home/cta-obra-a-medida.png"
+          src="/images/home/fondo-obras-a-medida.webp"
         />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(234,223,205,.98)_0%,rgba(234,223,205,.94)_44%,rgba(234,223,205,.72)_66%,rgba(234,223,205,.28)_100%)]" />
@@ -67,10 +67,10 @@ export function CtaParallax() {
             <span>✣</span>
             <span className="h-px w-20 bg-[#b89050]" />
           </div>
-          <h2 className="mt-8 font-serif text-[40px] leading-none sm:text-[54px] lg:text-[64px]">
+          <h2 className="mt-8 font-serif text-[34px] font-[430] leading-none tracking-[-0.03em] sm:text-[46px] lg:text-[54px]">
             Pedí una obra personalizada
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 tracking-[0.05em] text-[#7c5750]">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-[#7c5750] sm:text-lg">
             Creamos piezas únicas pensadas para tu espacio, tu historia o una temática especial.
           </p>
           <Link
@@ -85,4 +85,3 @@ export function CtaParallax() {
     </section>
   );
 }
-

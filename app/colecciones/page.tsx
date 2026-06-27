@@ -20,7 +20,7 @@ export default function ColeccionesPage() {
   return (
     <main className="overflow-hidden bg-[#f7eee8] pt-28 text-[#221f1d]">
       <section className="relative overflow-hidden border-b border-[#d8b177]/25 bg-[#f8f0e9] px-5 py-20 text-center sm:px-8 lg:py-24">
-        <div className="absolute inset-0 bg-[url('/images/textures/fondo.jpg')] bg-cover opacity-[0.08]" />
+        <div className="absolute inset-0 bg-[url('/images/textures/fondo.webp')] bg-cover opacity-[0.08]" />
         <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-[#d59b9d]/20 blur-3xl" />
         <div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-[#c99b63]/10 blur-3xl" />
         <div className="relative mx-auto max-w-4xl">
@@ -30,7 +30,7 @@ export default function ColeccionesPage() {
             <span className="text-xs">{"\u25c6"}</span>
             <span className="h-px flex-1 bg-[#b89050]/60" />
           </div>
-          <h1 className="mt-5 font-serif text-[68px] leading-none text-[#171514] sm:text-[96px] lg:text-[120px]">
+          <h1 className="mt-5 font-serif text-[48px] font-[430] leading-none tracking-[-0.04em] text-[#171514] sm:text-[72px] lg:text-[86px]">
             Colecciones
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#5d504b]">
@@ -53,7 +53,7 @@ export default function ColeccionesPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 44vw, 90vw"
-                src="/images/collections/Portada Coleccion Elegirse.jpg"
+                src="/images/collections/portada-coleccion-elegirse.webp"
               />
             </div>
           </div>
@@ -65,10 +65,10 @@ export default function ColeccionesPage() {
               <span className="text-xs">{"\u25c6"}</span>
               <span className="h-px flex-1 bg-[#b89050]/70" />
             </div>
-            <h2 className="mt-7 font-serif text-[56px] leading-none text-[#171514] sm:text-[76px]">
+            <h2 className="mt-7 font-serif text-[42px] font-[430] leading-none tracking-[-0.035em] text-[#171514] sm:text-[58px]">
               Elegirse
             </h2>
-            <p className="mt-4 font-serif text-2xl italic leading-snug text-[#b87982]">
+            <p className="mt-4 max-w-xl text-xl font-[430] leading-snug tracking-[-0.015em] text-[#b87982]">
               Tres estados. Tres decisiones. Una misma mujer.
             </p>
             <span className="mt-7 block h-px w-44 bg-[#b89050]/70" />
@@ -78,7 +78,7 @@ export default function ColeccionesPage() {
               propone otro camino: aprender a mirar, volver al interior y reconocer que algunos estados tambi&eacute;n
               pueden elegirse.
             </p>
-            <p className="mt-6 border-l border-[#b89050]/70 pl-5 font-serif text-3xl leading-tight text-[#744247]">
+            <p className="mt-6 border-l border-[#b89050]/70 pl-5 font-serif text-[25px] font-[430] leading-tight tracking-[-0.02em] text-[#744247]">
               No son retratos.<br />Son estados elegidos.
             </p>
 
@@ -91,7 +91,7 @@ export default function ColeccionesPage() {
               ))}
             </div>
 
-            <div className="mt-8 inline-flex flex-wrap items-center bg-[#f0dfd8] px-6 py-4 text-xs uppercase tracking-[0.24em] text-[#4f403d]">
+            <div className="mt-8 inline-flex flex-wrap items-center bg-[#f0dfd8] px-6 py-4 text-xs uppercase tracking-[0.12em] text-[#4f403d]">
               <span>Paz Interior</span>
               <span className="mx-5 text-[#b89050]">|</span>
               <span>Intuici&oacute;n</span>
@@ -110,7 +110,7 @@ export default function ColeccionesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#e9ddd2] px-5 py-16 sm:px-8 lg:py-24">
-        <div className="absolute inset-0 bg-[url('/images/textures/textura fondo.jpg')] bg-cover opacity-[0.08]" />
+        <div className="absolute inset-0 bg-[url('/images/textures/fondo.webp')] bg-cover opacity-[0.08]" />
         <div className="absolute bottom-0 right-0 h-[44%] w-[56%] bg-[radial-gradient(circle_at_70%_80%,rgba(17,17,17,.34),transparent_58%)]" />
         <div className="relative mx-auto grid max-w-[1500px] items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:px-8">
           <div className="max-w-2xl">
@@ -120,10 +120,10 @@ export default function ColeccionesPage() {
               <span className="text-xs">{"\u25c6"}</span>
               <span className="h-px flex-1 bg-[#b89050]/70" />
             </div>
-            <h2 className="mt-7 font-serif text-[48px] leading-none text-[#171514] sm:text-[72px]">
-              Black Cat <em className="text-[#744247]">Collection</em>
+            <h2 className="mt-7 font-serif text-[40px] font-[430] leading-none tracking-[-0.035em] text-[#171514] sm:text-[56px]">
+              Black Cat <em className="not-italic text-[#744247]">Collection</em>
             </h2>
-            <p className="mt-4 font-serif text-2xl italic leading-snug text-[#b87982]">
+            <p className="mt-4 max-w-xl text-xl font-[430] leading-snug tracking-[-0.015em] text-[#b87982]">
               Una serie sobre prejuicio, amor y segundas oportunidades.
             </p>
             <span className="mt-7 block h-px w-44 bg-[#b89050]/70" />
@@ -143,11 +143,11 @@ export default function ColeccionesPage() {
             <div className="mt-9 grid gap-3">
               {blackCatChapters.map(([number, title, state]) => (
                 <div className="grid grid-cols-[54px_1fr] items-baseline gap-5" key={number}>
-                  <span className="font-serif text-4xl italic text-[#b87982]">{number}</span>
+                  <span className="font-serif text-[32px] font-[430] tracking-[-0.02em] text-[#b87982]">{number}</span>
                   <p className="text-lg text-[#221f1d]">
                     <strong>{title}</strong>
                     <span className="mx-2 text-[#b89050]">·</span>
-                    <em className="text-[#6d5d57]">{state}</em>
+                    <em className="not-italic text-[#6d5d57]">{state}</em>
                   </p>
                 </div>
               ))}
@@ -169,7 +169,7 @@ export default function ColeccionesPage() {
                 className="object-contain"
                 fill
                 sizes="(min-width: 1024px) 44vw, 90vw"
-                src="/images/collections/Portada Coleccion Back Cat.jpg"
+                src="/images/collections/portada-coleccion-black-cat.webp"
               />
             </div>
           </div>
@@ -177,9 +177,9 @@ export default function ColeccionesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#fffaf5] px-5 py-16 text-center sm:px-8 lg:py-20">
-        <div className="absolute inset-0 bg-[url('/images/textures/fondo.jpg')] bg-cover opacity-[0.06]" />
+        <div className="absolute inset-0 bg-[url('/images/textures/fondo.webp')] bg-cover opacity-[0.06]" />
         <div className="relative mx-auto max-w-4xl">
-          <h2 className="font-serif text-5xl leading-tight text-[#744247] sm:text-6xl">
+          <h2 className="font-serif text-[34px] font-[430] leading-tight tracking-[-0.03em] text-[#744247] sm:text-[46px]">
             Cada colecci&oacute;n es una forma de entrar a una historia.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#5d504b]">

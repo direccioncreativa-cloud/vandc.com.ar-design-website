@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -21,14 +22,25 @@ const consultHref = whatsappLink("Hola Van, quiero consultar por una obra.");
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isDarkHeader = pathname === "/" || pathname?.startsWith("/acerca");
+  const navTextClass = isDarkHeader
+    ? "text-ivory drop-shadow-[0_1px_10px_rgba(0,0,0,.45)]"
+    : "text-charcoal drop-shadow-[0_1px_10px_rgba(250,247,242,.72)]";
+  const consultClass = isDarkHeader
+    ? "border-ivory/45 text-ivory hover:border-blush hover:bg-blush hover:text-charcoal"
+    : "border-charcoal/35 text-charcoal hover:border-blush hover:bg-blush hover:text-charcoal";
+  const mobileButtonClass = isDarkHeader
+    ? "border-ivory/45 text-ivory hover:border-blush hover:text-blush"
+    : "border-charcoal/35 text-charcoal hover:border-blush hover:text-[#8c3e4c]";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-black/70 to-transparent">
-      <div className="mx-auto flex max-w-[1740px] items-center justify-between px-5 py-7 sm:px-8 lg:px-14">
+    <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
+      <div className="mx-auto flex max-w-[1740px] items-center justify-between px-5 py-5 sm:px-8 lg:px-14">
         <Link aria-label="Ir al inicio" className="relative h-12 w-32 sm:h-14 sm:w-40" href="/">
           <Image
             alt="Van D.C."
-            className="hidden object-contain"
+            className={`object-contain ${isDarkHeader ? "hidden" : "block"}`}
             fill
             priority
             sizes="160px"
@@ -36,7 +48,7 @@ export function Header() {
           />
           <Image
             alt="Van D.C."
-            className="object-contain"
+            className={`object-contain ${isDarkHeader ? "block" : "hidden"}`}
             fill
             priority
             sizes="160px"
@@ -44,10 +56,10 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-10 xl:gap-14 lg:flex">
+        <nav className="hidden items-center gap-8 xl:gap-11 lg:flex">
           {nav.map(([label, href]) => (
             <Link
-              className="editorial-kicker text-[11px] text-ivory/72 transition hover:text-blush"
+              className={`editorial-kicker text-[11px] transition hover:text-blush focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush ${navTextClass}`}
               href={href}
               key={label}
             >
@@ -57,9 +69,9 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-0 lg:flex">
-          <ThemeToggle />
+          <ThemeToggle tone={isDarkHeader ? "light" : "dark"} />
           <Link
-            className="editorial-kicker border border-blush/55 border-l-0 px-7 py-4 text-[11px] text-blush transition hover:bg-blush hover:text-charcoal"
+            className={`editorial-kicker border border-l-0 px-7 py-4 text-[11px] transition focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush ${consultClass}`}
             href={consultHref}
             target="_blank"
           >
@@ -68,10 +80,10 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
+          <ThemeToggle tone={isDarkHeader ? "light" : "dark"} />
           <button
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className="grid h-10 w-10 place-items-center rounded-full border border-blush/50 text-blush"
+            className={`grid h-10 w-10 place-items-center rounded-full border bg-transparent transition focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush ${mobileButtonClass}`}
             onClick={() => setOpen((value) => !value)}
             type="button"
           >
@@ -85,7 +97,7 @@ export function Header() {
           <nav className="mx-auto grid max-w-7xl gap-3">
             {nav.map(([label, href]) => (
               <Link
-                className="py-2 font-serif text-2xl text-ivory"
+                className="py-2 font-serif text-2xl font-[520] tracking-[-0.02em] text-ivory"
                 href={href}
                 key={label}
                 onClick={() => setOpen(false)}
@@ -107,4 +119,3 @@ export function Header() {
     </header>
   );
 }
-

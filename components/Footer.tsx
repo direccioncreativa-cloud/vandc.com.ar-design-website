@@ -23,9 +23,9 @@ export function Footer() {
       <Image
         alt="Experiencia artística Van D.C."
         className="absolute inset-y-0 right-0 h-full w-[68%] object-cover object-center opacity-[0.22] grayscale"
-        height={724}
-        src="/images/home/footer-evento-bg.png"
-        width={2172}
+        height={640}
+        src="/images/home/footer-panoramico.webp"
+        width={1920}
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_34%,rgba(184,121,130,.14),transparent_36%),linear-gradient(90deg,#120f12_0%,rgba(18,15,18,.98)_34%,rgba(18,15,18,.72)_68%,rgba(18,15,18,.94)_100%)]" />
       <div className="relative mx-auto grid max-w-[1680px] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.02fr_0.74fr_0.9fr] lg:px-14 lg:py-24">
@@ -44,7 +44,7 @@ export function Footer() {
             <span>✥</span>
             <span className="h-px w-28 bg-[#b89050]" />
           </div>
-          <p className="mt-9 max-w-xl font-serif text-4xl leading-tight text-[#f4efe7]">
+          <p className="mt-9 max-w-xl font-serif text-[30px] font-[430] leading-tight tracking-[-0.025em] text-[#f4efe7] sm:text-[38px]">
             El arte nos une y nos hace únicos
           </p>
         </div>
@@ -52,7 +52,7 @@ export function Footer() {
         <nav className="self-center border-l border-[#b89050]/50 pl-10">
           {actionLinks.map(([label, href]) => (
             <Link
-              className="block border-b border-[#b89050]/30 py-6 text-center font-serif text-2xl tracking-[0.18em] text-[#f4efe7] transition hover:text-[#e8c7c8]"
+              className="block border-b border-[#b89050]/30 py-6 text-center font-serif text-xl font-[520] tracking-[0.08em] text-[#f4efe7] transition hover:text-[#e8c7c8]"
               href={href}
               key={label}
             >
@@ -74,7 +74,7 @@ export function Footer() {
                   <Icon size={22} />
                 </span>
                 <span className="h-9 w-px bg-[#b89050]/60" />
-                <span className="font-serif text-xl tracking-[0.12em]">{label}</span>
+                <span className="font-serif text-base font-[520] tracking-[0.08em]">{label}</span>
               </Link>
             ))}
           </div>
@@ -82,11 +82,10 @@ export function Footer() {
       </div>
       <div className="relative mx-auto max-w-[1680px] px-5 pb-10 sm:px-8 lg:px-14">
         <div className="h-px bg-[#b89050]/40" />
-        <p className="pt-8 text-center font-serif text-lg tracking-[0.12em] text-[#f4efe7]/80">
+        <p className="pt-8 text-center font-serif text-sm tracking-[0.08em] text-[#f4efe7]/80">
           © 2026 Van DC. Todos los derechos reservados.
         </p>
       </div>
     </footer>
   );
 }
-

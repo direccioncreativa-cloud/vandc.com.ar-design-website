@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Van D.C. | Artista visual",
     description:
       "Galería romántica contemporánea, obras originales y experiencias artísticas en Buenos Aires.",
-    images: ["/images/home/Hero principal.png"]
+    images: ["/images/home/hero-vandc-sillon.png"]
   }
 };
 
@@ -36,4 +36,3 @@ export default function RootLayout({
     </html>
   );
 }
-
