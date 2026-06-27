@@ -3,8 +3,16 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  tone?: "light" | "dark";
+};
+
+export function ThemeToggle({ tone = "light" }: ThemeToggleProps) {
   const [dark, setDark] = useState(false);
+  const buttonClass =
+    tone === "dark"
+      ? "grid h-[52px] w-[62px] place-items-center border border-charcoal/45 bg-transparent text-charcoal transition hover:border-blush hover:bg-blush hover:text-charcoal focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush"
+      : "grid h-[52px] w-[62px] place-items-center border border-ivory/45 bg-transparent text-ivory transition hover:border-blush hover:bg-blush hover:text-charcoal focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush";
 
   useEffect(() => {
     const stored = window.localStorage.getItem("vandc-theme");
@@ -24,7 +32,7 @@ export function ThemeToggle() {
   return (
     <button
       aria-label={dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-      className="grid h-[52px] w-[62px] place-items-center border border-blush/55 bg-black/15 text-blush backdrop-blur transition hover:bg-blush hover:text-charcoal"
+      className={buttonClass}
       onClick={toggleTheme}
       type="button"
     >

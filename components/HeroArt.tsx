@@ -77,7 +77,7 @@ export function HeroArt() {
           fill
           priority
           sizes="100vw"
-          src="/images/home/hero-fondo.png"
+          src="/images/home/hero-fondo.webp"
         />
       </div>
 
@@ -87,7 +87,7 @@ export function HeroArt() {
           fill
           priority
           sizes="100vw"
-          src="/images/home/hero-letras.png"
+          src="/images/home/hero-letras.webp"
         />
       </div>
 
@@ -126,4 +126,3 @@ export function HeroArt() {
     </section>
   );
 }
-

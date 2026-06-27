@@ -38,19 +38,19 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
   return (
     <main className="overflow-hidden bg-[#f8f1ea] text-[#171313]">
       <section className="relative px-5 pb-14 pt-36 sm:px-8 lg:px-14 lg:pb-20">
-        <div className="absolute inset-0 bg-[url('/images/textures/fondo.jpg')] bg-cover opacity-[0.1]" />
+        <div className="absolute inset-0 bg-[url('/images/textures/fondo.webp')] bg-cover opacity-[0.1]" />
         <div className="relative mx-auto grid max-w-[1360px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <ArtworkDetailGallery images={artwork.gallery} title={artwork.title} />
 
           <div className="lg:sticky lg:top-28">
             <p className="editorial-kicker text-xs text-[#9b6268]">Ficha de obra</p>
             <span className="mt-5 block h-px w-20 bg-[#b89050]" />
-            <h1 className="mt-8 font-serif text-[56px] font-normal leading-none sm:text-[84px]">{artwork.title}</h1>
-            <p className="mt-5 text-lg italic leading-8 text-[#9b6268]">{artwork.collection}</p>
+            <h1 className="mt-8 font-serif text-[42px] font-[430] leading-none tracking-[-0.035em] sm:text-[64px]">{artwork.title}</h1>
+            <p className="mt-5 text-base font-[520] leading-8 text-[#9b6268]">{artwork.collection}</p>
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#5f534d]">{artwork.description}</p>
 
             {artwork.quote ? (
-              <blockquote className="mt-8 border-l border-[#b89050] pl-6 font-serif text-3xl leading-tight text-[#8d5960]">
+              <blockquote className="mt-8 border-l border-[#b89050] pl-6 font-serif text-[24px] font-[430] leading-tight tracking-[-0.02em] text-[#8d5960]">
                 “{artwork.quote}”
               </blockquote>
             ) : null}

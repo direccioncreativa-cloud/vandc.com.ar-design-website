@@ -81,8 +81,8 @@ export const artworks: Artwork[] = [
     orientation: "cuadrada",
     status: "disponible",
     year: "2024",
-    image: "/images/obras/paz-interior.png",
-    gallery: ["/images/obras/paz-interior.png", "/images/obras/paz-interior-ambiente.jpg"],
+    image: "/images/obras/paz-interior.webp",
+    gallery: ["/images/obras/paz-interior.webp", "/images/obras/paz-interior-medidas.webp"],
     description:
       "Paz Interior nace cuando la mente no se detiene y se necesita aprender a encontrar calma en medio del ruido.",
     quote: "No se trata de tenerlo todo en calma, sino de encontrar calma en medio de todo.",
@@ -101,8 +101,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2024",
-    image: "/images/obras/intuicion.png",
-    gallery: ["/images/obras/intuicion.png", "/images/obras/intuicion-ambiente.jpg"],
+    image: "/images/obras/intuicion.webp",
+    gallery: ["/images/obras/intuicion.webp", "/images/obras/intuicion-medidas.webp"],
     description:
       "Intuición aparece para volver a confiar, incluso en aquello que todavía no puede verse.",
     quote: "Cuando el ruido se detiene, la intuición habla.",
@@ -121,8 +121,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2024",
-    image: "/images/obras/actitud.png",
-    gallery: ["/images/obras/actitud.png", "/images/obras/actitud-ambiente.jpg"],
+    image: "/images/obras/actitud.webp",
+    gallery: ["/images/obras/actitud.webp", "/images/obras/actitud-medidas.webp"],
     description:
       "Actitud fue creada para esos días en los que la energía no llega sola y avanzar se convierte en un acto de pura voluntad.",
     quote: "No es arrogancia, es la certeza de quien ya se eligió.",
@@ -141,8 +141,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2026",
-    image: "/images/obras/espectativa.png",
-    gallery: ["/images/obras/espectativa.png"],
+    image: "/images/obras/espectativa.webp",
+    gallery: ["/images/obras/espectativa.webp"],
     description:
       "Obra original de Van D.C. creada desde la fuerza expresiva del gesto, la mirada y la presencia.",
     featured: true,
@@ -160,8 +160,8 @@ export const artworks: Artwork[] = [
     orientation: "horizontal",
     status: "disponible",
     year: "2026",
-    image: "/images/obras/proximidad.png",
-    gallery: ["/images/obras/proximidad.png"],
+    image: "/images/obras/proximidad.webp",
+    gallery: ["/images/obras/proximidad.webp"],
     description:
       "Obra original sobre el instante en que la cercanía empieza a contar una historia.",
     filters: ["obra-original", "acrilico"]
@@ -178,8 +178,8 @@ export const artworks: Artwork[] = [
     orientation: "horizontal",
     status: "disponible",
     year: "2026",
-    image: "/images/obras/encuentro-etereo.jpg",
-    gallery: ["/images/obras/encuentro-etereo.jpg"],
+    image: "/images/obras/encuentro-etereo.webp",
+    gallery: ["/images/obras/encuentro-etereo.webp"],
     description:
       "Obra original de atmósfera íntima, donde el encuentro se vuelve pausa, memoria y presencia.",
     filters: ["obra-original", "carbonilla"]
@@ -196,8 +196,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2026",
-    image: "/images/obras/elocuente-intimidad.jpg",
-    gallery: ["/images/obras/elocuente-intimidad.jpg"],
+    image: "/images/obras/elocuente-intimidad.webp",
+    gallery: ["/images/obras/elocuente-intimidad.webp"],
     description:
       "Obra a carbonilla donde el cuerpo, el gesto y el silencio construyen una intimidad expresiva.",
     filters: ["obra-original", "carbonilla"]
@@ -214,8 +214,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2026",
-    image: "/images/obras/indulgscencia-conexion-embriagadora.jpg",
-    gallery: ["/images/obras/indulgscencia-conexion-embriagadora.jpg"],
+    image: "/images/obras/indulgencia-conexion-embriagadora.webp",
+    gallery: ["/images/obras/indulgencia-conexion-embriagadora.webp"],
     description:
       "Obra a carbonilla sobre la intensidad del vínculo, el deseo y la conexión emocional.",
     filters: ["obra-original", "carbonilla"]
@@ -232,8 +232,8 @@ export const artworks: Artwork[] = [
     orientation: "horizontal",
     status: "disponible",
     year: "2026",
-    image: "/images/obras/tango-argentino-compas-carbonilla.jpg",
-    gallery: ["/images/obras/tango-argentino-compas-carbonilla.jpg"],
+    image: "/images/obras/tango-argentino.webp",
+    gallery: ["/images/obras/tango-argentino.webp"],
     description:
       "Obra horizontal a carbonilla inspirada en el tango, el compás y la tensión poética del encuentro.",
     filters: ["obra-original", "carbonilla"]
@@ -250,8 +250,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2025",
-    image: "/images/obras/black-cat-retrato-ludico.png",
-    gallery: ["/images/obras/black-cat-retrato-ludico.png"],
+    image: "/images/obras/black-cat-retrato-ludico.webp",
+    gallery: ["/images/obras/black-cat-retrato-ludico.webp"],
     description:
       "Un retrato de frente, como una pequeña foto de identidad. El gato se muestra entero, serio, magnético, casi jugando a ser descubierto.",
     quote: "La presencia en soledad.",
@@ -269,8 +269,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2025",
-    image: "/images/obras/black-cat-sombras-confianza.png",
-    gallery: ["/images/obras/black-cat-sombras-confianza.png"],
+    image: "/images/obras/black-cat-sombras-confianza.webp",
+    gallery: ["/images/obras/black-cat-sombras-confianza.webp"],
     description:
       "La primera cercanía nunca es total. El gato se apoya, pero conserva la alerta; quiere confiar.",
     quote: "Desconfianza que empieza a ceder.",
@@ -288,8 +288,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2025",
-    image: "/images/obras/black-cat-serena-intuicion.png",
-    gallery: ["/images/obras/black-cat-serena-intuicion.png"],
+    image: "/images/obras/black-cat-serena-intuicion.webp",
+    gallery: ["/images/obras/black-cat-serena-intuicion.webp"],
     description:
       "Él mira al gato de costado, sin invadirlo. Hay una intimidad nueva en esa pausa: el vínculo todavía no habla, pero ya empieza a escucharse.",
     quote: "Comunicación silenciosa.",
@@ -307,8 +307,8 @@ export const artworks: Artwork[] = [
     orientation: "vertical",
     status: "disponible",
     year: "2025",
-    image: "/images/obras/black-cat-abrazo-refugio.png",
-    gallery: ["/images/obras/black-cat-abrazo-refugio.png"],
+    image: "/images/obras/black-cat-abrazo-refugio.webp",
+    gallery: ["/images/obras/black-cat-abrazo-refugio.webp"],
     description:
       "Aquí la distancia se rinde. El gato ya no necesita medir el mundo: algo lo sostiene, algo lo elige, algo le dice, sin palabras, que puede quedarse.",
     quote: "El amor que rodea.",

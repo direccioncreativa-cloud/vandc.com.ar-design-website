@@ -73,7 +73,7 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
                   {getArtworkStatusLabel(artwork.status)}
                 </p>
               </div>
-              <h3 className="mt-3 font-serif text-3xl font-normal leading-none">{artwork.title}</h3>
+              <h3 className="mt-3 font-serif text-[27px] font-[520] leading-none tracking-[-0.025em]">{artwork.title}</h3>
               <dl className="mt-5 grid gap-2 text-sm text-[#5f534d]">
                 <div className="flex justify-between gap-4 border-t border-[#dcc4ae]/70 pt-3">
                   <dt>Técnica</dt>
