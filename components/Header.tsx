@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { whatsappLink } from "@/lib/whatsapp";
 
 const nav = [
@@ -30,17 +29,16 @@ export function Header() {
   const consultClass = isDarkHeader
     ? "border-ivory/45 text-ivory hover:border-blush hover:bg-blush hover:text-charcoal"
     : "border-charcoal/35 text-charcoal hover:border-blush hover:bg-blush hover:text-charcoal";
-  const mobileButtonClass = isDarkHeader
-    ? "border-ivory/45 text-ivory hover:border-blush hover:text-blush"
-    : "border-charcoal/35 text-charcoal hover:border-blush hover:text-[#8c3e4c]";
+  const blackLogoClass = isDarkHeader ? "hidden" : "hidden lg:block";
+  const whiteLogoClass = isDarkHeader ? "block" : "block lg:hidden";
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
+    <header className="absolute inset-x-0 top-0 z-50 bg-[#080707]/96 lg:bg-transparent">
       <div className="mx-auto flex max-w-[1740px] items-center justify-between px-5 py-5 sm:px-8 lg:px-14">
         <Link aria-label="Ir al inicio" className="relative h-12 w-32 sm:h-14 sm:w-40" href="/">
           <Image
             alt="Van D.C."
-            className={`object-contain ${isDarkHeader ? "hidden" : "block"}`}
+            className={`object-contain ${blackLogoClass}`}
             fill
             priority
             sizes="160px"
@@ -48,7 +46,7 @@ export function Header() {
           />
           <Image
             alt="Van D.C."
-            className={`object-contain ${isDarkHeader ? "block" : "hidden"}`}
+            className={`object-contain ${whiteLogoClass}`}
             fill
             priority
             sizes="160px"
@@ -69,9 +67,8 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-0 lg:flex">
-          <ThemeToggle tone={isDarkHeader ? "light" : "dark"} />
           <Link
-            className={`editorial-kicker border border-l-0 px-7 py-4 text-[11px] transition focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush ${consultClass}`}
+            className={`editorial-kicker border px-7 py-4 text-[11px] transition focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush ${consultClass}`}
             href={consultHref}
             target="_blank"
           >
@@ -80,10 +77,9 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle tone={isDarkHeader ? "light" : "dark"} />
           <button
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className={`grid h-10 w-10 place-items-center rounded-full border bg-transparent transition focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush ${mobileButtonClass}`}
+            className="grid h-10 w-10 place-items-center rounded-full border border-ivory/45 bg-transparent text-ivory transition hover:border-blush hover:text-blush focus:outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-blush"
             onClick={() => setOpen((value) => !value)}
             type="button"
           >

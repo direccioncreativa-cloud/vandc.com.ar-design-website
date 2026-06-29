@@ -15,6 +15,10 @@ type ArtworkCatalogProps = {
   artworks: Artwork[];
 };
 
+function isPublicDetail(value: string) {
+  return value.trim() !== "" && !value.toLowerCase().includes("confirmar");
+}
+
 export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
   const [activeFilter, setActiveFilter] = useState<ArtworkFilter>("todas");
 
@@ -51,49 +55,56 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
       </p>
 
       <div className="grid gap-7 sm:grid-cols-2 xl:grid-cols-3">
-        {visibleArtworks.map((artwork) => (
-          <Link
-            className="group border border-[#dcc4ae] bg-[#fffaf5]/82 p-4 shadow-[0_22px_80px_rgba(62,42,32,.08)] transition hover:-translate-y-1 hover:border-[#b89050]"
-            href={`/obras/${artwork.slug}`}
-            key={artwork.id}
-          >
-            <div className="relative aspect-[4/5] overflow-hidden bg-[#eaded2]">
-              <Image
-                alt={artwork.title}
-                className="object-cover transition duration-700 group-hover:scale-[1.035]"
-                fill
-                sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-                src={artwork.image}
-              />
-            </div>
-            <div className="pt-5">
-              <div className="flex items-center justify-between gap-4">
-                <p className="editorial-kicker text-[10px] text-[#9b6268]">{artwork.collection}</p>
-                <p className="editorial-kicker text-[9px] text-[#b89050]">
-                  {getArtworkStatusLabel(artwork.status)}
-                </p>
+        {visibleArtworks.map((artwork) => {
+          const details = [
+            ["Técnica", artwork.technique],
+            ["Soporte", artwork.support],
+            ["Medida", artwork.size]
+          ].filter(([, value]) => isPublicDetail(value));
+
+          return (
+            <Link
+              className="group border border-[#dcc4ae] bg-[#fffaf5]/82 p-4 shadow-[0_22px_80px_rgba(62,42,32,.08)] transition hover:-translate-y-1 hover:border-[#b89050]"
+              href={`/obras/${artwork.slug}`}
+              key={artwork.id}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#eaded2]">
+                <Image
+                  alt={artwork.title}
+                  className="object-cover transition duration-700 group-hover:scale-[1.035]"
+                  fill
+                  sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  src={artwork.image}
+                />
               </div>
-              <h3 className="mt-3 font-serif text-[27px] font-[520] leading-none tracking-[-0.025em]">{artwork.title}</h3>
-              <dl className="mt-5 grid gap-2 text-sm text-[#5f534d]">
-                <div className="flex justify-between gap-4 border-t border-[#dcc4ae]/70 pt-3">
-                  <dt>Técnica</dt>
-                  <dd className="text-right text-[#211a17]">{artwork.technique}</dd>
+              <div className="pt-5">
+                <div className="flex items-center justify-between gap-4">
+                  <p className="editorial-kicker text-[10px] text-[#9b6268]">{artwork.collection}</p>
+                  <p className="editorial-kicker text-[9px] text-[#b89050]">
+                    {getArtworkStatusLabel(artwork.status)}
+                  </p>
                 </div>
-                <div className="flex justify-between gap-4">
-                  <dt>Soporte</dt>
-                  <dd className="text-right text-[#211a17]">{artwork.support}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt>Medida</dt>
-                  <dd className="text-right text-[#211a17]">{artwork.size}</dd>
-                </div>
-              </dl>
-              <span className="editorial-kicker mt-6 inline-flex items-center gap-4 text-[10px] text-[#8d5960]">
-                Ver ficha <ArrowUpRight size={15} />
-              </span>
-            </div>
-          </Link>
-        ))}
+                <h3 className="mt-3 font-serif text-[27px] font-[520] leading-none tracking-[-0.025em]">{artwork.title}</h3>
+                {details.length ? (
+                  <dl className="mt-5 grid gap-2 text-sm text-[#5f534d]">
+                    {details.map(([label, value], index) => (
+                      <div
+                        className={`flex justify-between gap-4 ${index === 0 ? "border-t border-[#dcc4ae]/70 pt-3" : ""}`}
+                        key={label}
+                      >
+                        <dt>{label}</dt>
+                        <dd className="text-right text-[#211a17]">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                ) : null}
+                <span className="editorial-kicker mt-6 inline-flex items-center gap-4 text-[10px] text-[#8d5960]">
+                  Ver ficha <ArrowUpRight size={15} />
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

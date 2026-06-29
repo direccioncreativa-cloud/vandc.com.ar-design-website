@@ -11,6 +11,7 @@ import {
   Paintbrush,
   PenLine
 } from "lucide-react";
+import { ContactWhatsappForm } from "@/components/ContactWhatsappForm";
 import { whatsappLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ const contactOptions = [
     icon: Crown,
     title: "Colaboraci\u00f3n / prensa",
     copy: "Proyectos, alianzas, prensa y colaboraciones creativas.",
-    href: "mailto:info@vandc.com.ar",
+    href: "mailto:arte@vandc.com.ar",
     label: "Escribir"
   }
 ];
@@ -61,9 +62,9 @@ const directLinks = [
   {
     icon: Mail,
     title: "Email",
-    copy: "info@vandc.com.ar",
+    copy: "arte@vandc.com.ar",
     label: "Enviar email",
-    href: "mailto:info@vandc.com.ar"
+    href: "mailto:arte@vandc.com.ar"
   },
   {
     icon: Instagram,
@@ -161,47 +162,7 @@ export default function ContactoPage() {
             </p>
           </div>
 
-          <form
-            action={whatsappLink("Hola Van, quiero enviarte una consulta desde la web.")}
-            className="mt-10 grid w-full gap-6"
-            target="_blank"
-          >
-            <div className="grid gap-5 lg:grid-cols-2">
-              <input
-                className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
-                name="nombre"
-                placeholder="Nombre"
-                type="text"
-              />
-              <input
-                className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
-                name="email"
-                placeholder="Email"
-                type="email"
-              />
-            </div>
-            <select
-              className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm text-[#5d504b] outline-none transition focus:border-[#b87982]"
-              name="motivo"
-            >
-              <option>Seleccion&aacute; una opci&oacute;n</option>
-              <option>Obra original</option>
-              <option>Obra personalizada</option>
-              <option>Experiencia art&iacute;stica</option>
-              <option>Colaboraci&oacute;n / prensa</option>
-            </select>
-            <textarea
-              className="min-h-[190px] w-full resize-y border border-[#d8c6bd] bg-white/72 px-5 py-4 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
-              name="mensaje"
-              placeholder="Mensaje"
-            />
-            <button
-              className="editorial-kicker flex h-16 w-full items-center justify-center gap-6 bg-[#c97882] px-8 text-xs text-white transition hover:bg-[#9d5b58]"
-              type="submit"
-            >
-              Enviar consulta <ArrowRight size={20} />
-            </button>
-          </form>
+          <ContactWhatsappForm />
 
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {directLinks.map(({ icon: Icon, title, copy, label, href }) => (

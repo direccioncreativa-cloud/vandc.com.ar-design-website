@@ -14,7 +14,7 @@ const contactLinks: Array<[string, string, LucideIcon]> = [
   ["TikTok", "#", Music2],
   ["LinkedIn", "#", Linkedin],
   ["WhatsApp", whatsappLink("Hola Van, quiero hacer una consulta."), MessageCircle],
-  ["info@vandc.com.ar", "mailto:info@vandc.com.ar", Mail]
+  ["arte@vandc.com.ar", "mailto:arte@vandc.com.ar", Mail]
 ];
 
 export function Footer() {

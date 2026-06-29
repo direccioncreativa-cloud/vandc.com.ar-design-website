@@ -11,6 +11,10 @@ type ArtworkPageProps = {
   };
 };
 
+function isPublicDetail(value?: string) {
+  return Boolean(value?.trim()) && !value!.toLowerCase().includes("confirmar");
+}
+
 export const dynamicParams = false;
 export const dynamic = "force-static";
 
@@ -31,8 +35,8 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
     ["Soporte", artwork.support],
     ["Medida", artwork.size],
     ["Estado", getArtworkStatusLabel(artwork.status)],
-    ["Año", artwork.year ?? "A confirmar"]
-  ];
+    ["Año", artwork.year]
+  ].filter(([, value]) => isPublicDetail(value));
   const consultHref = whatsappLink(`Hola Van, quiero consultar el valor de la obra ${artwork.title}.`);
 
   return (
