@@ -12,8 +12,7 @@ export default function ObrasPage() {
           <span className="mx-auto mt-5 block h-px w-24 bg-[#b89050]" />
           <h1 className="mt-7 font-serif text-[44px] font-[430] leading-none tracking-[-0.035em] sm:text-[68px]">Catálogo de obras</h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#5f534d] sm:text-lg">
-            Una galería editable para recorrer piezas originales, obras a carbonilla y colecciones. Cada ficha queda
-            preparada para sumar técnica definitiva, medidas, estado, precio y nuevas imágenes.
+            Una selección de piezas originales, obras a carbonilla y colecciones para recorrer el universo visual de Van D.C.
           </p>
         </div>
       </section>
