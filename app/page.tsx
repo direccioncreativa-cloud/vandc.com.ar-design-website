@@ -131,7 +131,7 @@ export default function Home() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
-            <Link href="/colecciones/elegirse">
+            <Link href="/obras?coleccion=elegirse">
               <p className="editorial-kicker mx-auto mb-4 w-fit rounded-full border border-[#c99b63] px-9 py-3 text-xs text-[#8d5960]">Colección</p>
               <div className="relative aspect-[0.707] overflow-hidden border border-[#c99b63] bg-[#f5ece4] p-2 transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
                 <Image
@@ -147,7 +147,7 @@ export default function Home() {
               <span className="mx-auto mt-8 block h-px w-44 bg-[#c99b63]" />
             </Link>
 
-            <Link href="/colecciones/black-cat">
+            <Link href="/obras?coleccion=black-cat">
               <p className="editorial-kicker mx-auto mb-4 w-fit rounded-full border border-[#c99b63] px-9 py-3 text-xs text-[#8d5960]">Experiencia + colección</p>
               <div className="relative aspect-[0.707] overflow-hidden border border-[#c99b63] bg-[#111] p-2 transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
                 <Image
