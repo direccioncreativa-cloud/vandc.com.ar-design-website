@@ -42,7 +42,7 @@ export default function BlogPage() {
                 </div>
                 <div className="p-6 sm:p-8">
                   <time className="editorial-kicker text-[11px] text-[#b89050]" dateTime={note.date}>
-                    4 de julio de 2026
+                    {note.displayDate}
                   </time>
                   <h2 className="mt-5 max-w-2xl text-[30px] font-[430] leading-[1.04] tracking-[-0.03em] text-[#4a252b] sm:text-[38px]">
                     {note.title}
