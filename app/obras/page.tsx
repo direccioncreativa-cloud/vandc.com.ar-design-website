@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ArtworkCatalog } from "@/components/ArtworkCatalog";
 import { artworks } from "@/data/artworks";
 
@@ -19,7 +20,9 @@ export default function ObrasPage() {
 
       <section className="px-5 py-12 sm:px-8 lg:px-14 lg:py-18">
         <div className="mx-auto max-w-[1440px]">
-          <ArtworkCatalog artworks={artworks} />
+          <Suspense fallback={null}>
+            <ArtworkCatalog artworks={artworks} />
+          </Suspense>
         </div>
       </section>
     </main>

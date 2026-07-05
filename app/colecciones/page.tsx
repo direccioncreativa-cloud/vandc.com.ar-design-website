@@ -101,7 +101,7 @@ export default function ColeccionesPage() {
 
             <Link
               className="editorial-kicker mt-8 inline-flex items-center gap-8 bg-[#171514] px-8 py-5 text-xs text-[#d8b177] transition hover:bg-[#744247] hover:text-[#fffaf5]"
-              href="/colecciones/elegirse"
+              href="/obras?coleccion=elegirse"
             >
               Ver colecci&oacute;n <ArrowRight size={18} />
             </Link>
@@ -155,7 +155,7 @@ export default function ColeccionesPage() {
 
             <Link
               className="editorial-kicker mt-10 inline-flex items-center gap-8 bg-[#171514] px-8 py-5 text-xs text-[#d8b177] transition hover:bg-[#744247] hover:text-[#fffaf5]"
-              href="/colecciones/black-cat"
+              href="/obras?coleccion=black-cat"
             >
               Ver colecci&oacute;n <ArrowRight size={18} />
             </Link>

@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   type Artwork,
   type ArtworkFilter,
@@ -19,8 +20,30 @@ function isPublicDetail(value: string) {
   return value.trim() !== "" && !value.toLowerCase().includes("confirmar");
 }
 
+const collectionShortcuts: Array<{ label: string; value: ArtworkFilter; href: string }> = [
+  { label: "# Elegirse", value: "coleccion-elegirse", href: "/obras?coleccion=elegirse" },
+  { label: "# Black Cat Collection", value: "black-cat", href: "/obras?coleccion=black-cat" }
+];
+
+function getFilterFromCollection(collection: string | null): ArtworkFilter {
+  if (collection === "black-cat") {
+    return "black-cat";
+  }
+
+  if (collection === "elegirse") {
+    return "coleccion-elegirse";
+  }
+
+  return "todas";
+}
+
 export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
+  const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState<ArtworkFilter>("todas");
+
+  useEffect(() => {
+    setActiveFilter(getFilterFromCollection(searchParams.get("coleccion")));
+  }, [searchParams]);
 
   const visibleArtworks =
     activeFilter === "todas"
@@ -29,6 +52,30 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
 
   return (
     <div>
+      <div className="mb-8 border border-[#d8b99f]/55 bg-[#fffaf5]/60 p-5">
+        <p className="editorial-kicker text-[10px] text-[#9b6268]">Recorridos por colección</p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {collectionShortcuts.map((shortcut) => {
+            const selected = activeFilter === shortcut.value;
+
+            return (
+              <Link
+                className={`editorial-kicker inline-flex items-center border px-5 py-3 text-[10px] transition ${
+                  selected
+                    ? "border-[#171313] bg-[#171313] text-[#fffaf5]"
+                    : "border-[#c9a878]/65 bg-white/45 text-[#8d5960] hover:border-[#8d5960]"
+                }`}
+                href={shortcut.href}
+                key={shortcut.value}
+                onClick={() => setActiveFilter(shortcut.value)}
+              >
+                {shortcut.label}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="mb-10 flex gap-3 overflow-x-auto border-b border-[#d8b99f]/50 pb-5">
         {filterOptions.map((filter) => {
           const selected = activeFilter === filter.value;
