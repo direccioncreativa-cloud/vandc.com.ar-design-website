@@ -22,6 +22,7 @@ const consultHref = whatsappLink("Hola Van, quiero consultar por una obra.");
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const isExperiencesHeader = pathname?.startsWith("/experiencias");
   const isDarkHeader = pathname === "/" || pathname?.startsWith("/acerca");
   const navTextClass = isDarkHeader
     ? "text-ivory drop-shadow-[0_1px_10px_rgba(0,0,0,.45)]"
@@ -33,7 +34,11 @@ export function Header() {
   const whiteLogoClass = isDarkHeader ? "block" : "block lg:hidden";
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bg-[#080707]/96 lg:bg-transparent">
+    <header
+      className={`absolute inset-x-0 top-0 z-50 bg-[#080707]/96 ${
+        isExperiencesHeader ? "lg:border-b lg:border-[#dfbdb7]/55 lg:bg-[#fbf2ea]/96 lg:backdrop-blur-md" : "lg:bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-[1740px] items-center justify-between px-5 py-5 sm:px-8 lg:px-14">
         <Link aria-label="Ir al inicio" className="relative h-12 w-32 sm:h-14 sm:w-40" href="/">
           <Image
