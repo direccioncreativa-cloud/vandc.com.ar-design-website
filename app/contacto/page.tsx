@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { ContactWhatsappForm } from "@/components/ContactWhatsappForm";
 import { whatsappLink } from "@/lib/whatsapp";
+import { contactEmail, contactEmailHref, socialLinks } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Contacto | Van D.C.",
@@ -46,7 +47,7 @@ const contactOptions = [
     icon: Crown,
     title: "Colaboraci\u00f3n / prensa",
     copy: "Proyectos, alianzas, prensa y colaboraciones creativas.",
-    href: "mailto:arte@vandc.com.ar",
+    href: contactEmailHref,
     label: "Escribir"
   }
 ];
@@ -62,16 +63,16 @@ const directLinks = [
   {
     icon: Mail,
     title: "Email",
-    copy: "arte@vandc.com.ar",
+    copy: contactEmail,
     label: "Enviar email",
-    href: "mailto:arte@vandc.com.ar"
+    href: contactEmailHref
   },
   {
     icon: Instagram,
     title: "Instagram",
     copy: "Conoc\u00e9 m\u00e1s de mi trabajo y el backstage del estudio.",
-    label: "@vand.c",
-    href: "#"
+    label: "@vandc_art",
+    href: socialLinks.instagram
   }
 ];
 

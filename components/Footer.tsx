@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Instagram, Linkedin, Mail, MessageCircle, Music2, type LucideIcon } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
+import { contactEmail, contactEmailHref, socialLinks } from "@/lib/contact";
 
 const actionLinks = [
   ["Visitar Notas", "/notas"],
@@ -10,11 +11,11 @@ const actionLinks = [
 ];
 
 const contactLinks: Array<[string, string, LucideIcon]> = [
-  ["Instagram", "#", Instagram],
-  ["TikTok", "#", Music2],
-  ["LinkedIn", "#", Linkedin],
+  ["Instagram", socialLinks.instagram, Instagram],
+  ["TikTok", socialLinks.tiktok, Music2],
+  ["LinkedIn", socialLinks.linkedin, Linkedin],
   ["WhatsApp", whatsappLink("Hola Van, quiero hacer una consulta."), MessageCircle],
-  ["arte@vandc.com.ar", "mailto:arte@vandc.com.ar", Mail]
+  [contactEmail, contactEmailHref, Mail]
 ];
 
 export function Footer() {

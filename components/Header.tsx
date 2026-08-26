@@ -94,7 +94,7 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-blush/20 bg-[#080707]/96 px-4 py-5 text-ivory lg:hidden">
+        <div className="border-t border-blush/20 bg-[#080707] px-4 py-5 text-ivory shadow-2xl lg:hidden">
           <nav className="mx-auto grid max-w-7xl gap-3">
             {nav.map(([label, href]) => (
               <Link
