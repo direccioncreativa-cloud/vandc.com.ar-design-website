@@ -24,7 +24,7 @@ export function ContactWhatsappForm() {
       .filter(Boolean)
       .join("\n");
 
-    window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
+    window.location.assign(whatsappLink(text));
   }
 
   return (
