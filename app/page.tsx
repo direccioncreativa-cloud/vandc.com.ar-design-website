@@ -48,8 +48,10 @@ export default function Home() {
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {featuredArtworks.map((artwork) => (
-                <article
-                  className="group bg-[#f8eee9]/82 p-4 shadow-[0_18px_40px_rgba(17,17,17,0.12)] ring-1 ring-black/5"
+                <Link
+                  aria-label={`Ver ficha de ${artwork.title}`}
+                  className="group block bg-[#f8eee9]/82 p-4 shadow-[0_18px_40px_rgba(17,17,17,0.12)] ring-1 ring-black/5 transition hover:-translate-y-1 hover:ring-roseOld/55 focus:outline-none focus-visible:ring-2 focus-visible:ring-roseOld focus-visible:ring-offset-4 focus-visible:ring-offset-[#f1e2dd]"
+                  href={`/obras/${artwork.slug}`}
                   key={artwork.title}
                 >
                   <div className="relative aspect-[3/4] overflow-hidden bg-[#e9d7d1]">
@@ -58,7 +60,7 @@ export default function Home() {
                   <h3 className="mt-5 font-serif text-[23px] font-[520] leading-tight tracking-[-0.02em]">{artwork.title}</h3>
                   <p className="mt-3 min-h-[44px] text-sm leading-6 text-smoke">{artwork.technique}</p>
                   <span className="mt-4 block h-px w-8 bg-roseOld" />
-                </article>
+                </Link>
               ))}
             </div>
 
