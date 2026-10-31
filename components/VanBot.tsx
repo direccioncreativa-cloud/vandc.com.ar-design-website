@@ -17,10 +17,10 @@ export function VanBot() {
   const [open, setOpen] = useState(false);
   const locale = usePathname()?.startsWith("/en") ? "en" : "es";
   const localizedOptions = locale === "en" ? [
-    ["Enquire about an artwork", "Hi Van, I would like to enquire about an artwork."],
+    ["Inquire about an artwork", "Hi Van, I would like to inquire about an artwork."],
     ["Book an experience", "Hi Van, I would like to book an artistic experience."],
     ["Discover the collections", "Hi Van, I would like to know more about your collections."],
-    ["Talk to Van", "Hi Van, I would like to make an enquiry."]
+    ["Talk to Van", "Hi Van, I would like to make an inquiry."]
   ] : options;
 
   return (
@@ -30,7 +30,7 @@ export function VanBot() {
           <div className="mb-4 flex items-center justify-between">
             <div>
               <p className="font-serif text-2xl">VanBot</p>
-              <p className="text-xs text-smoke dark:text-[#d9cfc5]">{locale === "en" ? "Quick enquiries via WhatsApp" : "Consultas rápidas por WhatsApp"}</p>
+              <p className="text-xs text-smoke dark:text-[#d9cfc5]">{locale === "en" ? "Quick inquiries via WhatsApp" : "Consultas rápidas por WhatsApp"}</p>
             </div>
             <button aria-label={locale === "en" ? "Close VanBot" : "Cerrar VanBot"} onClick={() => setOpen(false)} type="button">
               <X size={18} />

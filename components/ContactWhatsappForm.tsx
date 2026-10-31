@@ -15,7 +15,7 @@ export function ContactWhatsappForm({ locale = "es" }: { locale?: "es" | "en" })
     const mensaje = String(formData.get("mensaje") ?? "").trim();
 
     const text = [
-      locale === "en" ? "Hi Van, I would like to send an enquiry from your website." : "Hola Van, quiero enviarte una consulta desde la web.",
+      locale === "en" ? "Hi Van, I would like to send an inquiry from your website." : "Hola Van, quiero enviarte una consulta desde la web.",
       nombre ? `${locale === "en" ? "Name" : "Nombre"}: ${nombre}` : "",
       email ? `Email: ${email}` : "",
       motivo ? `${locale === "en" ? "Subject" : "Motivo"}: ${motivo}` : "",
@@ -65,7 +65,7 @@ export function ContactWhatsappForm({ locale = "es" }: { locale?: "es" | "en" })
         className="editorial-kicker flex h-16 w-full items-center justify-center gap-6 bg-[#c97882] px-8 text-xs text-white transition hover:bg-[#9d5b58]"
         type="submit"
       >
-        {locale === "en" ? "Send enquiry" : "Enviar consulta"} <ArrowRight size={20} />
+        {locale === "en" ? "Send inquiry" : "Enviar consulta"} <ArrowRight size={20} />
       </button>
     </form>
   );

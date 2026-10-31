@@ -75,10 +75,10 @@ export function CtaParallax({ locale = "es" }: { locale?: "es" | "en" }) {
           </p>
           <Link
             className="editorial-kicker mt-9 inline-flex min-w-[320px] items-center justify-between border border-[#b89050] px-8 py-5 text-xs text-[#8d5960] transition hover:bg-[#8d5960] hover:text-[#faf7f2]"
-            href={whatsappLink(locale === "en" ? "Hi Van, I would like to enquire about a commissioned artwork." : "Hola Van, quiero consultar por una obra personalizada.")}
+            href={whatsappLink(locale === "en" ? "Hi Van, I would like to inquire about a commissioned artwork." : "Hola Van, quiero consultar por una obra personalizada.")}
             target="_blank"
           >
-            {locale === "en" ? "Enquire about a commission" : "Consultar obra a medida"} <span>→</span>
+            {locale === "en" ? "Inquire about a commission" : "Consultar obra a medida"} <span>→</span>
           </Link>
         </div>
       </div>

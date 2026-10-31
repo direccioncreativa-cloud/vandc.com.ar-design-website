@@ -27,7 +27,7 @@ export const filterOptionsEn: { label: string; value: ArtworkFilter }[] = [
 ];
 
 export const statusLabelsEn: Record<ArtworkStatus, string> = {
-  disponible: "Available", vendida: "Sold", reservada: "Reserved", "en-proceso": "In progress", "a-confirmar": "Enquire"
+  disponible: "Available", vendida: "Sold", reservada: "Reserved", "en-proceso": "In progress", "a-confirmar": "Inquire"
 };
 
 export function getArtworkEn(slug: string) { return artworksEn.find((artwork) => artwork.slug === slug); }

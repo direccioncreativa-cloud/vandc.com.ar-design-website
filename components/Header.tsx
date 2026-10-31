@@ -33,7 +33,7 @@ export function Header() {
   const pathname = usePathname();
   const locale: SiteLocale = pathname?.startsWith("/en") ? "en" : "es";
   const nav = locale === "en" ? navEn : navEs;
-  const consultHref = whatsappLink(locale === "en" ? "Hi Van, I would like to enquire about an artwork." : "Hola Van, quiero consultar por una obra.");
+  const consultHref = whatsappLink(locale === "en" ? "Hi Van, I would like to inquire about an artwork." : "Hola Van, quiero consultar por una obra.");
   const isExperiencesHeader = pathname?.startsWith("/experiencias") || pathname?.startsWith("/en/experiences");
   const isDarkHeader = pathname === "/" || pathname === "/en" || pathname?.startsWith("/acerca") || pathname?.startsWith("/en/about");
   const navTextClass = isDarkHeader
@@ -92,7 +92,7 @@ export function Header() {
             href={consultHref}
             target="_blank"
           >
-            {locale === "en" ? "Enquire" : "Consultar obra"}
+            {locale === "en" ? "Inquire" : "Consultar obra"}
           </Link>
         </div>
 
@@ -134,7 +134,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               target="_blank"
             >
-              {locale === "en" ? "Enquire about an artwork" : "Consultar obra"}
+              {locale === "en" ? "Inquire about an artwork" : "Consultar obra"}
             </Link>
           </nav>
         </div>

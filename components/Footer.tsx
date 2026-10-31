@@ -28,7 +28,7 @@ export function Footer() {
     ? [["Visit the journal", "/notas"], ["Buy an artwork", "/obras"], ["Book an experience", "/experiencias"]]
     : actionLinks;
   const localizedContacts: Array<[string, string, LucideIcon]> = contactLinks.map((item) => item[0] === "WhatsApp"
-    ? [item[0], whatsappLink(locale === "en" ? "Hi Van, I would like to make an enquiry." : "Hola Van, quiero hacer una consulta."), item[2]]
+    ? [item[0], whatsappLink(locale === "en" ? "Hi Van, I would like to make an inquiry." : "Hola Van, quiero hacer una consulta."), item[2]]
     : item);
   return (
     <footer id="contacto" className="relative overflow-hidden bg-[#120f12] text-[#f4efe7]">
