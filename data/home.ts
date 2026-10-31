@@ -1,6 +1,7 @@
 ﻿export const featuredArtworks = [
   {
     title: "Paz Interior",
+    slug: "paz-interior",
     collection: "Elegirse",
     technique: "Acrílico sobre lienzo tela",
     image: "/images/obras/paz-interior.webp",
@@ -10,6 +11,7 @@
   },
   {
     title: "Intuición",
+    slug: "intuicion",
     collection: "Elegirse",
     technique: "Acrílico sobre lienzo en madera",
     image: "/images/obras/intuicion.webp",
@@ -18,6 +20,7 @@
   },
   {
     title: "Actitud",
+    slug: "actitud",
     collection: "Elegirse",
     technique: "Acrílico sobre lienzo en madera",
     image: "/images/obras/actitud.webp",
@@ -26,6 +29,7 @@
   },
   {
     title: "Expectativa",
+    slug: "expectativa",
     collection: "Obra única",
     technique: "Acrílico sobre lienzo en madera",
     image: "/images/obras/espectativa.webp",
