@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 
 const PARALLAX_STRENGTH = 18; // Ajuste de movimiento: 10px muy sutil, 25px más visible.
 
-export function HeroArt() {
+export function HeroArt({ locale = "es" }: { locale?: "es" | "en" }) {
   const heroRef = useRef<HTMLElement>(null);
   const artTextRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
@@ -73,7 +73,7 @@ export function HeroArt() {
     <section ref={heroRef} className="hero-art" id="inicio">
       <div className="hero-art__image">
         <Image
-          alt="Fondo oscuro editorial"
+          alt={locale === "en" ? "Dark editorial background" : "Fondo oscuro editorial"}
           fill
           priority
           sizes="100vw"
@@ -93,7 +93,7 @@ export function HeroArt() {
 
       <div className="hero-art__cutout">
         <Image
-          alt="Van D.C. sentada en sillón"
+          alt={locale === "en" ? "Van D.C. seated in an armchair" : "Van D.C. sentada en sillón"}
           fill
           priority
           sizes="100vw"
@@ -105,16 +105,16 @@ export function HeroArt() {
 
       <div className="hero-art__content">
         <div className="hero-art__copy">
-          <div className="hero-art__kicker">Artista visual</div>
+          <div className="hero-art__kicker">{locale === "en" ? "Visual artist" : "Artista visual"}</div>
           <h1>
-            Elegir cómo habitar el <em>presente</em> es nuestra <em>obra más importante</em>
+            {locale === "en" ? <>Choosing how to inhabit the <em>present</em> is our <em>most important work</em></> : <>Elegir cómo habitar el <em>presente</em> es nuestra <em>obra más importante</em></>}
           </h1>
           <p>
-            Mi trabajo explora la belleza de lo cotidiano, la memoria y las emociones que nos conectan como humanidad.
+            {locale === "en" ? "My work explores the beauty of everyday life, memory and the emotions that connect us as human beings." : "Mi trabajo explora la belleza de lo cotidiano, la memoria y las emociones que nos conectan como humanidad."}
           </p>
           <div className="hero-art__actions">
-            <Link href="/obras">Ver obras</Link>
-            <Link href="/acerca">Conocer más</Link>
+            <Link href={locale === "en" ? "/en/artworks" : "/obras"}>{locale === "en" ? "View artworks" : "Ver obras"}</Link>
+            <Link href={locale === "en" ? "/en/about" : "/acerca"}>{locale === "en" ? "Discover more" : "Conocer más"}</Link>
           </div>
           <div className="hero-art__location">
             <span>Van DC.</span>

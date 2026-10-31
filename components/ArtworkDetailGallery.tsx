@@ -8,9 +8,10 @@ import { useEffect, useRef, useState } from "react";
 type ArtworkDetailGalleryProps = {
   images: string[];
   title: string;
+  locale?: "es" | "en";
 };
 
-export function ArtworkDetailGallery({ images, title }: ArtworkDetailGalleryProps) {
+export function ArtworkDetailGallery({ images, title, locale = "es" }: ArtworkDetailGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [activeImageSize, setActiveImageSize] = useState({ width: 1200, height: 1500 });
@@ -46,7 +47,7 @@ export function ArtworkDetailGallery({ images, title }: ArtworkDetailGalleryProp
   return (
     <div>
       <button
-        aria-label={`Ampliar imagen de ${title}`}
+        aria-label={locale === "en" ? `Enlarge image of ${title}` : `Ampliar imagen de ${title}`}
         className="relative block aspect-[4/5] w-full overflow-hidden border border-[#d6b7a1] bg-[#eaded2]"
         onClick={() => setExpanded(true)}
         type="button"
@@ -73,7 +74,7 @@ export function ArtworkDetailGallery({ images, title }: ArtworkDetailGalleryProp
         <div className="mt-4 grid grid-cols-4 gap-3">
           {images.map((image, index) => (
             <button
-              aria-label={`Ver imagen ${index + 1} de ${title}`}
+              aria-label={locale === "en" ? `View image ${index + 1} of ${title}` : `Ver imagen ${index + 1} de ${title}`}
               className={`relative aspect-square overflow-hidden border bg-[#eaded2] transition ${
                 activeIndex === index ? "border-[#8d5960]" : "border-[#d6b7a1] opacity-75 hover:opacity-100"
               }`}
@@ -91,7 +92,7 @@ export function ArtworkDetailGallery({ images, title }: ArtworkDetailGalleryProp
         {expanded ? (
           <motion.div
             animate={{ opacity: 1 }}
-            aria-label={`Vista ampliada de ${title}`}
+            aria-label={locale === "en" ? `Enlarged view of ${title}` : `Vista ampliada de ${title}`}
             aria-modal="true"
             className="fixed inset-0 z-[80] flex cursor-zoom-out items-center justify-center p-5 sm:p-8"
             exit={{ opacity: 0 }}
@@ -102,7 +103,7 @@ export function ArtworkDetailGallery({ images, title }: ArtworkDetailGalleryProp
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
             <button
-              aria-label="Cerrar imagen ampliada"
+              aria-label={locale === "en" ? "Close enlarged image" : "Cerrar imagen ampliada"}
               className="absolute right-4 top-4 z-20 grid h-12 w-12 cursor-pointer place-items-center rounded-full border-2 border-white bg-[#fffaf5] text-[#171313] shadow-[0_12px_36px_rgba(0,0,0,.5)] transition hover:scale-105 hover:bg-[#e8c7c8] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e8c7c8] focus-visible:ring-offset-4 focus-visible:ring-offset-[#080707] sm:right-6 sm:top-6"
               onClick={(event) => {
                 event.stopPropagation();
@@ -133,7 +134,7 @@ export function ArtworkDetailGallery({ images, title }: ArtworkDetailGalleryProp
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             />
             <p className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-[11px] uppercase tracking-[0.16em] text-white/70">
-              Click fuera de la obra para cerrar
+              {locale === "en" ? "Click outside the artwork to close" : "Click fuera de la obra para cerrar"}
             </p>
           </motion.div>
         ) : null}

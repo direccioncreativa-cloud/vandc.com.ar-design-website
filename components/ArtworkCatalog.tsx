@@ -11,9 +11,11 @@ import {
   filterOptions,
   getArtworkStatusLabel
 } from "@/data/artworks";
+import { filterOptionsEn, statusLabelsEn } from "@/data/artworks-en";
 
 type ArtworkCatalogProps = {
   artworks: Artwork[];
+  locale?: "es" | "en";
 };
 
 function isPublicDetail(value: string) {
@@ -37,7 +39,7 @@ function getFilterFromCollection(collection: string | null): ArtworkFilter {
   return "todas";
 }
 
-export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
+export function ArtworkCatalog({ artworks, locale = "es" }: ArtworkCatalogProps) {
   const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState<ArtworkFilter>("todas");
 
@@ -50,12 +52,15 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
       ? artworks
       : artworks.filter((artwork) => artwork.filters.includes(activeFilter));
 
+  const options = locale === "en" ? filterOptionsEn : filterOptions;
+  const basePath = locale === "en" ? "/en/artworks" : "/obras";
+  const shortcuts = collectionShortcuts.map((item) => ({ ...item, label: locale === "en" && item.value === "coleccion-elegirse" ? "# Choosing Yourself" : item.label, href: `${basePath}?coleccion=${item.value === "black-cat" ? "black-cat" : "elegirse"}` }));
   return (
     <div>
       <div className="mb-8 border border-[#d8b99f]/55 bg-[#fffaf5]/60 p-5">
-        <p className="editorial-kicker text-[10px] text-[#9b6268]">Recorridos por colección</p>
+        <p className="editorial-kicker text-[10px] text-[#9b6268]">{locale === "en" ? "Explore by collection" : "Recorridos por colección"}</p>
         <div className="mt-4 flex flex-wrap gap-3">
-          {collectionShortcuts.map((shortcut) => {
+          {shortcuts.map((shortcut) => {
             const selected = activeFilter === shortcut.value;
 
             return (
@@ -77,7 +82,7 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
       </div>
 
       <div className="mb-10 flex gap-3 overflow-x-auto border-b border-[#d8b99f]/50 pb-5">
-        {filterOptions.map((filter) => {
+        {options.map((filter) => {
           const selected = activeFilter === filter.value;
 
           return (
@@ -98,21 +103,21 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
       </div>
 
       <p className="mb-7 text-sm text-[#786a61]">
-        {visibleArtworks.length} obra{visibleArtworks.length === 1 ? "" : "s"} en esta selección
+        {locale === "en" ? `${visibleArtworks.length} artwork${visibleArtworks.length === 1 ? "" : "s"} in this selection` : `${visibleArtworks.length} obra${visibleArtworks.length === 1 ? "" : "s"} en esta selección`}
       </p>
 
       <div className="grid gap-7 sm:grid-cols-2 xl:grid-cols-3">
         {visibleArtworks.map((artwork) => {
           const details = [
-            ["Técnica", artwork.technique],
-            ["Soporte", artwork.support],
-            ["Medida", artwork.size]
+            [locale === "en" ? "Medium" : "Técnica", artwork.technique],
+            [locale === "en" ? "Support" : "Soporte", artwork.support],
+            [locale === "en" ? "Dimensions" : "Medida", artwork.size]
           ].filter(([, value]) => isPublicDetail(value));
 
           return (
             <Link
               className="group border border-[#dcc4ae] bg-[#fffaf5]/82 p-4 shadow-[0_22px_80px_rgba(62,42,32,.08)] transition hover:-translate-y-1 hover:border-[#b89050]"
-              href={`/obras/${artwork.slug}`}
+              href={`${basePath}/${artwork.slug}`}
               key={artwork.id}
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-[#eaded2]">
@@ -128,7 +133,7 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
                 <div className="flex items-center justify-between gap-4">
                   <p className="editorial-kicker text-[10px] text-[#9b6268]">{artwork.collection}</p>
                   <p className="editorial-kicker text-[9px] text-[#b89050]">
-                    {getArtworkStatusLabel(artwork.status)}
+                    {locale === "en" ? statusLabelsEn[artwork.status] : getArtworkStatusLabel(artwork.status)}
                   </p>
                 </div>
                 <h3 className="mt-3 font-serif text-[27px] font-[520] leading-none tracking-[-0.025em]">{artwork.title}</h3>
@@ -146,7 +151,7 @@ export function ArtworkCatalog({ artworks }: ArtworkCatalogProps) {
                   </dl>
                 ) : null}
                 <span className="editorial-kicker mt-6 inline-flex items-center gap-4 text-[10px] text-[#8d5960]">
-                  Ver ficha <ArrowUpRight size={15} />
+                  {locale === "en" ? "View details" : "Ver ficha"} <ArrowUpRight size={15} />
                 </span>
               </div>
             </Link>

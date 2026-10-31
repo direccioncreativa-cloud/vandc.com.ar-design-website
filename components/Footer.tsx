@@ -1,8 +1,12 @@
-﻿import Image from "next/image";
+﻿"use client";
+
+import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Linkedin, Mail, MessageCircle, Music2, type LucideIcon } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 import { contactEmail, contactEmailHref, socialLinks } from "@/lib/contact";
+import { localizedPath, type SiteLocale } from "@/lib/locale";
+import { usePathname } from "next/navigation";
 
 const actionLinks = [
   ["Visitar Notas", "/notas"],
@@ -19,6 +23,13 @@ const contactLinks: Array<[string, string, LucideIcon]> = [
 ];
 
 export function Footer() {
+  const locale: SiteLocale = usePathname()?.startsWith("/en") ? "en" : "es";
+  const localizedActions = locale === "en"
+    ? [["Visit the journal", "/notas"], ["Buy an artwork", "/obras"], ["Book an experience", "/experiencias"]]
+    : actionLinks;
+  const localizedContacts: Array<[string, string, LucideIcon]> = contactLinks.map((item) => item[0] === "WhatsApp"
+    ? [item[0], whatsappLink(locale === "en" ? "Hi Van, I would like to make an inquiry." : "Hola Van, quiero hacer una consulta."), item[2]]
+    : item);
   return (
     <footer id="contacto" className="relative overflow-hidden bg-[#120f12] text-[#f4efe7]">
       <Image
@@ -46,15 +57,15 @@ export function Footer() {
             <span className="h-px w-28 bg-[#b89050]" />
           </div>
           <p className="mt-9 max-w-xl font-serif text-[30px] font-[430] leading-tight tracking-[-0.025em] text-[#f4efe7] sm:text-[38px]">
-            El arte nos une y nos hace únicos
+            {locale === "en" ? "Art brings us together and makes us unique" : "El arte nos une y nos hace únicos"}
           </p>
         </div>
 
         <nav className="self-center border-l border-[#b89050]/50 pl-10">
-          {actionLinks.map(([label, href]) => (
+          {localizedActions.map(([label, href]) => (
             <Link
               className="block border-b border-[#b89050]/30 py-6 text-center font-serif text-xl font-[520] tracking-[0.08em] text-[#f4efe7] transition hover:text-[#e8c7c8]"
-              href={href}
+              href={localizedPath(href, locale)}
               key={label}
             >
               {label}
@@ -64,7 +75,7 @@ export function Footer() {
 
         <div className="self-center">
           <div className="grid gap-4">
-            {contactLinks.map(([label, href, Icon]) => (
+            {localizedContacts.map(([label, href, Icon]) => (
               <Link
                 className="grid grid-cols-[54px_1px_1fr] items-center gap-5 border-b border-[#b89050]/25 py-3 text-[#f4efe7] transition hover:text-[#e8c7c8]"
                 href={href as string}
@@ -84,7 +95,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-[1680px] px-5 pb-10 sm:px-8 lg:px-14">
         <div className="h-px bg-[#b89050]/40" />
         <p className="pt-8 text-center font-serif text-sm tracking-[0.08em] text-[#f4efe7]/80">
-          © 2026 Van DC. Todos los derechos reservados.
+          © 2026 Van DC. {locale === "en" ? "All rights reserved." : "Todos los derechos reservados."}
         </p>
       </div>
     </footer>

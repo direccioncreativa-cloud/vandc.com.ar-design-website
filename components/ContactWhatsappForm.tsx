@@ -4,7 +4,7 @@ import { type FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 
-export function ContactWhatsappForm() {
+export function ContactWhatsappForm({ locale = "es" }: { locale?: "es" | "en" }) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -15,11 +15,11 @@ export function ContactWhatsappForm() {
     const mensaje = String(formData.get("mensaje") ?? "").trim();
 
     const text = [
-      "Hola Van, quiero enviarte una consulta desde la web.",
-      nombre ? `Nombre: ${nombre}` : "",
+      locale === "en" ? "Hi Van, I would like to send an inquiry from your website." : "Hola Van, quiero enviarte una consulta desde la web.",
+      nombre ? `${locale === "en" ? "Name" : "Nombre"}: ${nombre}` : "",
       email ? `Email: ${email}` : "",
-      motivo ? `Motivo: ${motivo}` : "",
-      mensaje ? `Mensaje: ${mensaje}` : ""
+      motivo ? `${locale === "en" ? "Subject" : "Motivo"}: ${motivo}` : "",
+      mensaje ? `${locale === "en" ? "Message" : "Mensaje"}: ${mensaje}` : ""
     ]
       .filter(Boolean)
       .join("\n");
@@ -33,7 +33,7 @@ export function ContactWhatsappForm() {
         <input
           className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
           name="nombre"
-          placeholder="Nombre"
+          placeholder={locale === "en" ? "Name" : "Nombre"}
           type="text"
         />
         <input
@@ -49,23 +49,23 @@ export function ContactWhatsappForm() {
         defaultValue=""
       >
         <option value="" disabled>
-          Seleccioná una opción
+          {locale === "en" ? "Select an option" : "Seleccioná una opción"}
         </option>
-        <option>Obra original</option>
-        <option>Obra personalizada</option>
-        <option>Experiencia artística</option>
-        <option>Colaboración / prensa</option>
+        <option>{locale === "en" ? "Original artwork" : "Obra original"}</option>
+        <option>{locale === "en" ? "Commissioned artwork" : "Obra personalizada"}</option>
+        <option>{locale === "en" ? "Artistic experience" : "Experiencia artística"}</option>
+        <option>{locale === "en" ? "Collaboration / press" : "Colaboración / prensa"}</option>
       </select>
       <textarea
         className="min-h-[190px] w-full resize-y border border-[#d8c6bd] bg-white/72 px-5 py-4 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
         name="mensaje"
-        placeholder="Mensaje"
+        placeholder={locale === "en" ? "Message" : "Mensaje"}
       />
       <button
         className="editorial-kicker flex h-16 w-full items-center justify-center gap-6 bg-[#c97882] px-8 text-xs text-white transition hover:bg-[#9d5b58]"
         type="submit"
       >
-        Enviar consulta <ArrowRight size={20} />
+        {locale === "en" ? "Send inquiry" : "Enviar consulta"} <ArrowRight size={20} />
       </button>
     </form>
   );
