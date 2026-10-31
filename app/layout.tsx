@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { VanBot } from "@/components/VanBot";
+import { DocumentLanguage } from "@/components/DocumentLanguage";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vandc.com.ar"),
@@ -37,6 +38,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
       </head>
       <body>
+        <DocumentLanguage />
         <Header />
         {children}
         <Footer />
