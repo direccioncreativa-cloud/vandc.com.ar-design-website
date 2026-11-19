@@ -30,19 +30,29 @@ export function ContactWhatsappForm({ locale = "es" }: { locale?: "es" | "en" })
   return (
     <form className="mt-10 grid w-full max-w-[760px] gap-6" onSubmit={handleSubmit}>
       <div className="grid gap-5 lg:grid-cols-2">
+        <label className="grid gap-2 text-sm text-[#5d504b]">
+          <span>{locale === "en" ? "Name" : "Nombre"}</span>
         <input
+          autoComplete="name"
           className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
           name="nombre"
           placeholder={locale === "en" ? "Name" : "Nombre"}
           type="text"
         />
+        </label>
+        <label className="grid gap-2 text-sm text-[#5d504b]">
+          <span>Email</span>
         <input
+          autoComplete="email"
           className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
           name="email"
           placeholder="Email"
           type="email"
         />
+        </label>
       </div>
+      <label className="grid gap-2 text-sm text-[#5d504b]">
+        <span>{locale === "en" ? "Subject" : "Motivo"}</span>
       <select
         className="h-14 w-full border border-[#d8c6bd] bg-white/72 px-5 text-sm text-[#5d504b] outline-none transition focus:border-[#b87982]"
         name="motivo"
@@ -56,11 +66,15 @@ export function ContactWhatsappForm({ locale = "es" }: { locale?: "es" | "en" })
         <option>{locale === "en" ? "Artistic experience" : "Experiencia artística"}</option>
         <option>{locale === "en" ? "Collaboration / press" : "Colaboración / prensa"}</option>
       </select>
+      </label>
+      <label className="grid gap-2 text-sm text-[#5d504b]">
+        <span>{locale === "en" ? "Message" : "Mensaje"}</span>
       <textarea
         className="min-h-[190px] w-full resize-y border border-[#d8c6bd] bg-white/72 px-5 py-4 text-sm outline-none transition placeholder:text-[#7c625b] focus:border-[#b87982]"
         name="mensaje"
         placeholder={locale === "en" ? "Message" : "Mensaje"}
       />
+      </label>
       <button
         className="editorial-kicker flex h-16 w-full items-center justify-center gap-6 bg-[#c97882] px-8 text-xs text-white transition hover:bg-[#9d5b58]"
         type="submit"
