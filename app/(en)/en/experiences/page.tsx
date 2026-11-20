@@ -1,0 +1,43 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Building2, MessageCircle, Palette, Users } from "lucide-react";
+import { whatsappLink } from "@/lib/whatsapp";
+
+export const metadata: Metadata = { title: "Artistic experiences", description: "Immersive artistic experiences by Van D.C. for private groups, brands, cafés and cultural spaces in Buenos Aires.", alternates: { canonical: "/en/experiences/", languages: { "es-AR": "/experiencias/", "en-US": "/en/experiences/", "x-default": "/experiencias/" } } };
+
+const details = [
+  ["Format", "In person"], ["Ideal for", "Art lovers, cat lovers, groups, cafés, brands and private events"],
+  ["Includes", "The collection’s narrative, materials, guided painting and a finished artwork to take home"],
+  ["Previous venue", "La Panera Rosa, Buenos Aires’ Chinatown"], ["Duration", "Approximately 2 hours"], ["Format", "Art + afternoon tea"]
+];
+const steps = [["01", "The story", "An introduction to the collection and its emotional journey."], ["02", "The question", "A simple prompt to open the gaze and connect with the experience."], ["03", "The creation", "Step-by-step guided painting. No previous experience required."], ["04", "The artwork", "Each participant takes home a finished piece as the memory of a chosen state."]];
+const formats = [
+  { title: "Private experiences", copy: "Encounters for groups, birthdays, teams, friends, families and communities.", image: "/images/experiencias/tarjeta-experiencias-privadas.webp", Icon: Users, dark: true },
+  { title: "Brands & venues", copy: "Artistic proposals for cafés, galleries, brands, hotels, stores and cultural projects.", image: "/images/experiencias/tarjeta-marcas-espacios.webp", Icon: Building2 },
+  { title: "Bespoke experiences", copy: "An artistic experience designed around a collection, a theme or a particular emotion.", image: "/images/experiencias/tarjeta-experiencias-a-medida.webp", Icon: Palette }
+];
+
+export default function ExperiencesPage() {
+  const inquiry = whatsappLink("Hi Van, I would like to inquire about an artistic experience.");
+  return (
+    <main id="main-content" className="experiences-page overflow-hidden bg-[#fbf2ea] text-[#4a252b]">
+      <section className="relative min-h-[calc(100svh-96px)] overflow-hidden border-b border-[#dfbdb7]/60 bg-[#fbf2ea] pt-20 lg:pt-24">
+        <Image alt="" className="object-cover object-left opacity-80" fill priority sizes="100vw" src="/images/experiencias/fondo-superior-experiencias.webp" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,242,234,.98)_0%,rgba(251,242,234,.96)_42%,rgba(251,242,234,.04)_42.5%,rgba(251,242,234,0)_100%)]" />
+        <div className="absolute right-0 top-0 hidden h-full w-[58%] lg:block"><Image alt="A Van D.C. artistic experience" className="object-cover object-center" fill priority sizes="58vw" src="/images/experiencias/black-cat-experience.webp" /></div>
+        <div className="relative mx-auto flex min-h-[calc(100svh-96px)] max-w-[1680px] items-center px-5 py-20 sm:px-8 lg:px-14"><div className="max-w-[560px] text-center lg:text-left"><p className="experience-kicker text-[#b89050]">Experiences</p><span className="mx-auto mt-5 block h-px w-28 bg-[#b89050] lg:mx-0" /><h1 className="mt-8 max-w-xl text-[46px] leading-[.94] tracking-[-.035em] text-[#8c3e4c] sm:text-[62px] lg:text-[76px]">Artistic experiences</h1><p className="mx-auto mt-8 max-w-sm leading-7 text-[#5d3036] lg:mx-0">Encounters created to experience art through a story, an emotion and an artwork.</p><div className="mt-10 grid max-w-[520px] gap-4 sm:grid-cols-2"><Link className="experience-button inline-flex min-h-[58px] items-center justify-center bg-[#b87982] px-5 py-4 text-center text-white" href={inquiry} target="_blank">Book an experience <ArrowUpRight className="ml-5" size={17} /></Link><Link className="experience-button inline-flex min-h-[58px] items-center justify-center border border-[#b87982]/70 px-5 py-4 text-center text-[#8c3e4c]" href={inquiry} target="_blank">Inquire on WhatsApp <MessageCircle className="ml-5" size={17} /></Link></div></div></div>
+      </section>
+
+      <section className="border-b border-[#dfbdb7]/60 px-5 py-16 text-center sm:px-8 lg:py-20"><p className="mx-auto max-w-4xl text-[24px] leading-[1.28] tracking-[-.02em] text-[#8c3e4c] sm:text-[30px] lg:text-[34px]">This is not simply about learning to paint. Each experience grows from a collection, a narrative and an emotional question. Participants create a work of their own while moving through a visual story designed to shift the way we see.</p></section>
+
+      <section className="mx-auto grid max-w-[1680px] gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.1fr_.9fr] lg:px-14 lg:py-20"><div><div className="relative aspect-[1.46] overflow-hidden rounded-[8px] bg-[#e8d7cf]"><Image alt="Participants painting during the Black Cat experience" className="object-cover" fill sizes="(min-width:1024px) 52vw,100vw" src="/images/experiencias/black-cat-experience.webp" /></div><p className="mt-7 max-w-3xl leading-8 text-[#5b3434]">A themed artistic experience inspired by Black Cat Collection—a series about prejudice, love and second chances. Participants enter the collection’s universe, share a creative encounter and paint their own work step by step.</p></div><div className="self-center"><h2 className="text-[38px] leading-[.96] tracking-[-.035em] text-[#4a252b] sm:text-[48px]">Black Cat<br />Collection Experience</h2><p className="mt-6 max-w-md leading-7 text-[#b87982]">Art, afternoon tea and a story to paint and take home.</p><div className="mt-8 divide-y divide-[#dfbdb7] border border-[#dfbdb7] bg-[#fff7ef]/58">{details.map(([label, value], index) => <div className="grid grid-cols-[128px_1fr] gap-4 px-5 py-4 text-[13px] leading-6 sm:grid-cols-[165px_1fr]" key={`${label}-${index}`}><strong className="text-[#4a252b]">{label}:</strong><span className="text-[#6f4d4b]">{value}</span></div>)}</div></div></section>
+
+      <section className="border-y border-[#dfbdb7]/60 px-5 py-14 text-center sm:px-8 lg:py-16"><h2 className="text-[34px] tracking-[-.025em] text-[#4a252b] sm:text-[40px]">How it works</h2><div className="mx-auto mt-10 grid max-w-[1440px] gap-8 md:grid-cols-4">{steps.map(([number, title, copy]) => <article className="border-[#dfbdb7] md:border-r md:last:border-r-0 md:px-8" key={number}><p className="text-[36px] text-[#dd8586]">{number}</p><h3 className="mt-3 text-xl text-[#4a252b]">{title}</h3><p className="mx-auto mt-3 max-w-xs text-[13px] leading-6 text-[#5b3434]">{copy}</p></article>)}</div></section>
+
+      <section className="mx-auto grid max-w-[1680px] gap-5 px-5 py-16 sm:px-8 lg:grid-cols-3 lg:px-14">{formats.map(({ title, copy, image, Icon, dark }) => <article className="relative min-h-[310px] overflow-hidden rounded-[8px] ring-1 ring-[#d9b4ad]/45" key={title}><Image alt={title} className="object-cover" fill sizes="(min-width:1024px) 31vw,100vw" src={image} /><div className={dark ? "absolute inset-0 bg-[linear-gradient(90deg,rgba(16,9,8,.9),rgba(16,9,8,.22))]" : "absolute inset-0 bg-[linear-gradient(90deg,rgba(250,247,242,.82),rgba(250,247,242,.16))]"} /><div className={`relative flex min-h-[310px] max-w-[78%] flex-col justify-center p-7 sm:p-9 ${dark ? "text-[#f7efe8]" : "text-[#5d3036]"}`}><Icon className="mb-5 text-[#b89050]" size={36} strokeWidth={1.5} /><h3 className="text-[27px] leading-[1.04] md:text-[30px]">{title}</h3><p className={`mt-5 text-[15px] leading-7 ${dark ? "text-[#f4e6df]" : "text-[#6f4d4b]"}`}>{copy}</p><span className="mt-7 block h-px w-24 bg-[#b89050]" /></div></article>)}</section>
+
+      <section className="relative overflow-hidden px-5 py-16 text-center text-[#f7efe8] sm:px-8 lg:py-20"><Image alt="" className="object-cover" fill sizes="100vw" src="/images/experiencias/fondo-consultar-experiencia.webp" /><div className="absolute inset-0 bg-[#241014]/35" /><div className="relative mx-auto max-w-4xl"><h2 className="text-[32px] leading-tight tracking-[-.03em] sm:text-[44px]">Every experience is a way to create, connect and inhabit a story.</h2><div className="mt-10 flex flex-col justify-center gap-5 sm:flex-row"><Link className="experience-button inline-flex items-center justify-center bg-[#b87982] px-8 py-5 text-white" href={inquiry} target="_blank">Inquire about an experience <ArrowUpRight className="ml-5" size={17} /></Link><Link className="experience-button inline-flex items-center justify-center border border-[#b89050] px-8 py-5 text-[#b89050]" href="/en/collections">View collections <ArrowUpRight className="ml-5" size={17} /></Link></div></div></section>
+    </main>
+  );
+}

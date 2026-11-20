@@ -31,11 +31,12 @@ const navEn = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const locale: SiteLocale = pathname?.startsWith("/en") ? "en" : "es";
+  const normalizedPath = pathname && pathname !== "/" ? pathname.replace(/\/$/, "") : pathname;
+  const locale: SiteLocale = normalizedPath?.startsWith("/en") ? "en" : "es";
   const nav = locale === "en" ? navEn : navEs;
   const consultHref = whatsappLink(locale === "en" ? "Hi Van, I would like to inquire about an artwork." : "Hola Van, quiero consultar por una obra.");
-  const isExperiencesHeader = pathname?.startsWith("/experiencias") || pathname?.startsWith("/en/experiences");
-  const isDarkHeader = pathname === "/" || pathname === "/en" || pathname?.startsWith("/acerca") || pathname?.startsWith("/en/about");
+  const isExperiencesHeader = normalizedPath?.startsWith("/experiencias") || normalizedPath?.startsWith("/en/experiences");
+  const isDarkHeader = normalizedPath === "/" || normalizedPath === "/en" || normalizedPath?.startsWith("/acerca") || normalizedPath?.startsWith("/en/about");
   const navTextClass = isDarkHeader
     ? "text-ivory drop-shadow-[0_1px_10px_rgba(0,0,0,.45)]"
     : "text-charcoal drop-shadow-[0_1px_10px_rgba(250,247,242,.72)]";
