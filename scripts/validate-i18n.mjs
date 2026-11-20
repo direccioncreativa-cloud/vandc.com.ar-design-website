@@ -17,6 +17,18 @@ for (const [es, en] of pairs) {
   for (const file of [es, en]) if (!existsSync(join(output, file))) failures.push(`Missing generated route: ${file}`);
 }
 
+function countMarkup(file, pattern) {
+  return (readFileSync(join(output, file), "utf8").match(pattern) || []).length;
+}
+
+for (const [es, en] of pairs) {
+  for (const [label, pattern] of [["sections", /<section/g], ["images", /<img/g], ["H1 headings", /<h1/g]]) {
+    const esCount = countMarkup(es, pattern);
+    const enCount = countMarkup(en, pattern);
+    if (esCount !== enCount) failures.push(`${label} differ: ${es} (${esCount}) vs ${en} (${enCount})`);
+  }
+}
+
 const esHome = readFileSync(join(output, "index.html"), "utf8");
 const enHome = readFileSync(join(output, "en.html"), "utf8");
 if (!esHome.includes('<html lang="es-AR"')) failures.push("Spanish HTML language is incorrect");

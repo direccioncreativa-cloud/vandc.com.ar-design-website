@@ -20,7 +20,7 @@ const details = [
   ["Ideal para", "amantes del arte, cat lovers, grupos, caf&eacute;s, marcas y eventos privados"],
   ["Incluye", "narrativa de la colecci&oacute;n, materiales, pintura guiada y obra final para llevar"],
   ["Experiencia realizada", "La Panera Rosa, Barrio Chino"],
-  ["Duraci&oacute;n", "2 hs aprox."],
+  ["Duración", "2 hs aprox."],
   ["Formato", "arte + merienda"]
 ];
 

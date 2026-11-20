@@ -27,7 +27,7 @@ export default function EnglishHome() {
         <div className="mx-auto grid max-w-[1680px] gap-10 px-5 sm:px-8 lg:grid-cols-[1.14fr_.86fr] lg:px-14">
           <div>
             <p className="editorial-kicker text-xs text-roseOld">Curated selection</p><span className="mt-5 block h-px w-12 bg-roseOld" />
-            <h1 className="mt-6 font-serif text-[44px] leading-[.96] tracking-[-.035em] sm:text-[62px] lg:text-[74px]">Featured artworks</h1>
+            <h2 className="mt-6 font-serif text-[44px] leading-[.96] tracking-[-.035em] sm:text-[62px] lg:text-[74px]">Featured artworks</h2>
             <p className="mt-6 max-w-xl text-xl leading-snug text-smoke">Pieces created to accompany spaces, emotions and moments worth holding on to.</p>
             <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{featured.map((artwork) => (
               <Link aria-label={`View ${artwork.title}`} className="group bg-[#f8eee9]/82 p-4 shadow-[0_18px_40px_rgba(17,17,17,.12)] ring-1 ring-black/5 transition hover:-translate-y-1 hover:ring-roseOld/55 focus-visible:ring-2 focus-visible:ring-roseOld" href={`/en/artworks/${artwork.slug}`} key={artwork.id}>
