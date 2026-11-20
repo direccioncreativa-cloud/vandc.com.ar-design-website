@@ -1,7 +1,8 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { featuredArtworks, notes } from "@/data/home";
+import { featuredArtworks } from "@/data/home";
+import { notes } from "@/data/notes";
 import { SectionReveal } from "@/components/SectionReveal";
 import { HeroArt } from "@/components/HeroArt";
 import { CtaParallax } from "@/components/CtaParallax";
@@ -215,12 +216,17 @@ export default function Home() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {notes.map((note) => (
-            <article className="border-y border-[color:var(--line)] py-7" key={note.title}>
-              <p className="editorial-kicker text-[10px] text-roseOld">{note.category}</p>
+            <article className="group overflow-hidden border border-[color:var(--line)] bg-[#fffaf5]/55" key={note.title}>
+              <Link className="block" href={`/notas/${note.slug}`}>
+                <div className="relative aspect-[1.55] overflow-hidden bg-[#e8d7cf]"><Image alt={note.imageAlt} className="object-cover transition duration-700 group-hover:scale-[1.035]" fill sizes="(min-width:768px) 33vw,100vw" src={note.image} /></div>
+                <div className="p-6 sm:p-7">
+              <p className="editorial-kicker text-[10px] text-roseOld">{note.eyebrow}</p>
               <h3 className="mt-4 font-serif text-[30px] font-[520] leading-none tracking-[-0.025em]">{note.title}</h3>
               <p className="mt-5 text-sm leading-7 text-smoke dark:text-[#d9cfc5]">{note.excerpt}</p>
-              <Link className="mt-7 inline-flex text-sm text-roseOld" href="/notas">
+              <span className="mt-7 inline-flex text-sm text-roseOld">
                 Leer más
+              </span>
+                </div>
               </Link>
             </article>
           ))}

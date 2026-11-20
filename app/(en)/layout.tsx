@@ -3,6 +3,7 @@ import "../globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { VanBot } from "@/components/VanBot";
+import { BackToTop } from "@/components/BackToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vandc.com.ar"),
@@ -32,6 +33,7 @@ export default function EnglishLayout({ children }: { children: React.ReactNode 
         <Header />
         {children}
         <Footer />
+        <BackToTop locale="en" />
         <VanBot />
       </body>
     </html>
